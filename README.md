@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.icons8.com/3d-fluency/128/fire-element.png" width="128" height="128" alt="Distill Logo">
+  <img src="assets/hero.svg" width="800" alt="Distill Hero">
 </p>
 
 <h1 align="center">Distill 炼金</h1>
