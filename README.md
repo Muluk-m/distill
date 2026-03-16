@@ -30,7 +30,8 @@ Distill 炼金是一款 iOS 应用，能将长音频/视频内容在设备端转
 - **🔒 本地转录** — 使用 WhisperKit 在设备端完成语音转文字，音视频不出手机
 - **🤖 AI 提炼** — 接入 DeepSeek / OpenAI 等大模型，智能提取核心内容
 - **📱 多平台格式** — 一键生成小红书笔记、公众号草稿、推特/即刻帖子、学习笔记
-- **🎙️ 多种输入** — 支持导入音视频文件、现场录音
+- **🔗 粘贴即用** — 支持 B站、YouTube、小宇宙、播客 RSS、音视频直链
+- **🎙️ 现场录音** — 也可以直接录音转录
 - **📋 即刻分享** — 生成的内容可一键复制或通过系统分享发送
 
 ### 输出格式
@@ -89,7 +90,8 @@ Distill is an iOS app that transcribes long audio/video content on-device and us
 - **🔒 On-Device Transcription** — WhisperKit-powered speech-to-text runs entirely on your iPhone. Your media never leaves the device.
 - **🤖 AI-Powered Extraction** — Connects to DeepSeek / OpenAI / custom LLMs to intelligently distill key insights.
 - **📱 Multi-Platform Output** — Generates content formatted for Xiaohongshu (RED), WeChat articles, Twitter/Jike threads, and study notes.
-- **🎙️ Flexible Input** — Import audio/video files or record directly in-app.
+- **🔗 Paste & Go** — Supports Bilibili, YouTube, Xiaoyuzhou (小宇宙), podcast RSS, and direct audio/video links.
+- **🎙️ Live Recording** — Record and transcribe on the spot.
 - **📋 Instant Sharing** — One-tap copy or share via iOS share sheet.
 
 ### Output Formats
@@ -137,7 +139,7 @@ open Distill.xcodeproj
 
 ## Roadmap
 
-- [ ] URL import (Bilibili, YouTube, podcast RSS)
+- [x] URL import (Bilibili, YouTube, Xiaoyuzhou, podcast RSS, direct links)
 - [ ] On-device LLM (Ollama-style, fully offline)
 - [ ] Custom prompt templates
 - [ ] Export as image cards

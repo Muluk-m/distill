@@ -14,4 +14,5 @@ final class AppState: ObservableObject {
     let whisperService = WhisperService()
     let llmService = LLMService()
     let audioService = AudioService()
+    let urlExtractor = URLExtractor()
 }
