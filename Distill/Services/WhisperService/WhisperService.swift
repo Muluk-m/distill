@@ -19,7 +19,7 @@ final class WhisperService: ObservableObject {
     }
 
     /// Transcribe an audio file at the given URL
-    func transcribe(audioURL: URL) async throws -> TranscriptionResult {
+    func transcribe(audioURL: URL) async throws -> Transcript {
         guard let whisperKit else {
             throw WhisperError.modelNotLoaded
         }
@@ -34,21 +34,25 @@ final class WhisperService: ObservableObject {
             statusMessage = "转录完成"
         }
 
-        let results = try await whisperKit.transcribe(audioPath: audioURL.path())
+        // WhisperKit 0.8.0 API: transcribe(audioPaths:) -> [[TranscriptionResult]?]
+        let results = await whisperKit.transcribe(audioPaths: [audioURL.path])
 
-        let segments = results.flatMap { result in
-            (result.segments ?? []).map { segment in
-                TranscriptionResult.Segment(
-                    id: UUID(),
-                    text: segment.text,
-                    start: TimeInterval(segment.start),
-                    end: TimeInterval(segment.end)
-                )
+        let segments: [Transcript.Segment] = results
+            .compactMap { $0 } // unwrap optionals
+            .flatMap { $0 }    // flatten arrays
+            .flatMap { result in
+                result.segments.map { segment in
+                    Transcript.Segment(
+                        id: UUID(),
+                        text: segment.text,
+                        start: TimeInterval(segment.start),
+                        end: TimeInterval(segment.end)
+                    )
+                }
             }
-        }
 
         let duration = segments.last?.end ?? 0
-        return TranscriptionResult(segments: segments, duration: duration)
+        return Transcript(segments: segments, duration: duration)
     }
 
     enum WhisperError: LocalizedError {

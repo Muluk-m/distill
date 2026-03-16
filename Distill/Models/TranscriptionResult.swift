@@ -1,6 +1,6 @@
 import Foundation
 
-struct TranscriptionResult: Identifiable, Codable {
+struct Transcript: Identifiable, Codable {
     let id: UUID
     let segments: [Segment]
     let fullText: String

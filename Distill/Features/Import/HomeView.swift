@@ -8,7 +8,7 @@ struct HomeView: View {
     @State private var selectedPhotoItem: PhotosPickerItem?
     @State private var processingState: ProcessingState = .idle
     @State private var selectedOutputTypes: Set<OutputType> = Set(OutputType.allCases)
-    @State private var transcriptionResult: TranscriptionResult?
+    @State private var transcriptionResult: Transcript?
     @State private var distillResult: DistillResult?
     @State private var errorMessage: String?
     @State private var recordingURL: URL?

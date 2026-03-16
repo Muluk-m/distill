@@ -39,8 +39,8 @@ final class AudioService: ObservableObject {
         isRecording = true
         recordingDuration = 0
 
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            Task { @MainActor in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            Task { @MainActor [weak self] in
                 self?.recordingDuration += 1
             }
         }

@@ -3,11 +3,11 @@ import Foundation
 struct DistillResult: Identifiable, Codable {
     let id: UUID
     let sourceTitle: String
-    let transcription: TranscriptionResult
+    let transcription: Transcript
     let outputs: [ContentOutput]
     let createdAt: Date
 
-    init(sourceTitle: String, transcription: TranscriptionResult, outputs: [ContentOutput]) {
+    init(sourceTitle: String, transcription: Transcript, outputs: [ContentOutput]) {
         self.id = UUID()
         self.sourceTitle = sourceTitle
         self.transcription = transcription
